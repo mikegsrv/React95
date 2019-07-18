@@ -1,14 +1,15 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: './explorer/index.js',
   output: {
-    path: path.join(__dirname, 'explorer', 'doc'),
+    path: path.join(__dirname, 'explorer', 'dist'),
+    publicPath: '/',
     filename: 'bundle.js',
   },
   devServer: {
-    publicPath: path.join(__dirname, 'explorer', 'doc'),
-    contentBase: path.join(__dirname, 'explorer'),
+    contentBase: './explorer/dist',
     open: true,
     hot: true,
   },
@@ -17,4 +18,9 @@ module.exports = {
       { test: /\.(js|jsx)$/, exclude: /node_modules/, use: ['babel-loader'] },
     ],
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: path.resolve('./explorer/index.html'),
+    }),
+  ],
 };
