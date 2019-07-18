@@ -1,10 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import { GlobalStyle } from '@react95/core';
+
 class Welcome extends React.Component {
   render() {
-    return <h1>Hello React95! oi</h1>;
+    return <h1>Hello React95!</h1>;
   }
 }
 
-ReactDOM.render(<Welcome />, document.getElementById('root'));
+const App = () => (
+  <>
+    <GlobalStyle />
+    <Welcome />
+  </>
+);
+
+ReactDOM.render(<App />, document.getElementById('root'));

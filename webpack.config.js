@@ -13,9 +13,27 @@ module.exports = {
     open: true,
     hot: true,
   },
+  resolve: {
+    alias: {
+      '@react95/core': path.resolve(__dirname, 'components'),
+    },
+    extensions: ['*', '.js', '.jsx'],
+  },
   module: {
     rules: [
       { test: /\.(js|jsx)$/, exclude: /node_modules/, use: ['babel-loader'] },
+      {
+        test: /\.(png|jpe?g|gif|ico|ttf|woff|woff2|eot)$/,
+        use: [
+          {
+            loader: 'file-loader',
+          },
+        ],
+      },
+      {
+        test: /\.svg$/,
+        loader: 'svg-inline-loader',
+      },
     ],
   },
   plugins: [
