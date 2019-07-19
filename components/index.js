@@ -15,6 +15,7 @@ import TextArea from './TextArea';
 import Tooltip from './Tooltip';
 import Tree from './Tree';
 import GlobalStyle from './GlobalStyle';
+import Frame from './Frame';
 
 export {
   Alert,
@@ -35,4 +36,5 @@ export {
   Tooltip,
   GlobalStyle,
   Tree,
+  Frame,
 };
